@@ -1,8 +1,8 @@
 # Twitter-Rumour-Detection-
 A Twitter rumour detection system using machine learning based on PHEME dataset
 
-Files contained in this repository:
-1.feature_extraction.py
+## Files contained in this repository:
+1.feature_extraction.py<br>
 Extract feature matrix from raw twitter dataset and store in a csv file "dataset.csv"
     
 2.scikit-learn.py
