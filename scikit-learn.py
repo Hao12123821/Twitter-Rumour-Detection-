@@ -11,6 +11,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
+import time
 
 # Load dataset
 dataset = pd.read_csv('dataset.csv')
@@ -26,6 +27,7 @@ x_train = scaler.fit_transform(x_train)
 x_test = scaler.transform(x_test)
 
 # 1.Logistic regression
+start = time.time()
 logreg = LogisticRegression()
 logreg.fit(x_train, y_train)
 print('Accuracy of Logistic regression classifier on training set: {:.2f}'
@@ -36,9 +38,12 @@ print('Accuracy of Logistic regression classifier on test set: {:.2f}'
 pred = logreg.predict(x_test)
 logistic_reg_conf_matrix = confusion_matrix(y_test, pred)
 print(classification_report(y_test, pred))
+end = time.time()
+print('run time:{:.3f}s\n\n'.format(end - start))
 
 
 # 2.Decision tree
+start = time.time()
 clf = DecisionTreeClassifier().fit(x_train, y_train)
 print('Accuracy of Decision Tree classifier on training set: {:.2f}'
      .format(clf.score(x_train, y_train)))
@@ -48,8 +53,11 @@ print('Accuracy of Decision Tree classifier on test set: {:.2f}'
 pred = clf.predict(x_test)
 decision_tree_conf_matrix = confusion_matrix(y_test, pred)
 print(classification_report(y_test, pred))
+end = time.time()
+print('run time:{:.3f}s\n\n'.format(end - start))
 
 # 3.K nearest neighbor
+start = time.time()
 knn = KNeighborsClassifier()
 knn.fit(x_train, y_train)
 print('Accuracy of K-NN classifier on training set: {:.2f}'
@@ -60,8 +68,11 @@ print('Accuracy of K-NN classifier on test set: {:.2f}'
 pred = knn.predict(x_test)
 k_neighbors_conf_matrix = confusion_matrix(y_test, pred)
 print(classification_report(y_test, pred))
+end = time.time()
+print('run time:{:.3f}s\n\n'.format(end - start))
 
 # 4. Linear Discriminant Analysis
+start = time.time()
 lda = LinearDiscriminantAnalysis()
 lda.fit(x_train, y_train)
 print('Accuracy of LDA classifier on training set: {:.2f}'
@@ -72,8 +83,11 @@ print('Accuracy of LDA classifier on test set: {:.2f}'
 pred = lda.predict(x_test)
 linear_disc_conf_matrix = confusion_matrix(y_test, pred)
 print(classification_report(y_test, pred))
+end = time.time()
+print('run time:{:.3f}s\n\n'.format(end - start))
 
 # 5.Gaussian naive bayes
+start = time.time()
 gnb = GaussianNB()
 gnb.fit(x_train, y_train)
 print('Accuracy of GNB classifier on training set: {:.2f}'
@@ -84,8 +98,11 @@ print('Accuracy of GNB classifier on test set: {:.2f}'
 pred = gnb.predict(x_test)
 gaussian_bayes_conf_matrix = confusion_matrix(y_test, pred)
 print(classification_report(y_test, pred))
+end = time.time()
+print('run time:{:.3f}s\n\n'.format(end - start))
 
 # 6.Support vector machine
+start = time.time()
 svm = SVC()
 svm.fit(x_train, y_train)
 print('Accuracy of SVM classifier on training set: {:.2f}'
@@ -96,6 +113,8 @@ print('Accuracy of SVM classifier on test set: {:.2f}'
 pred = svm.predict(x_test)
 svm_conf_matrix = confusion_matrix(y_test, pred)
 print(classification_report(y_test, pred))
+end = time.time()
+print('run time:{:.3f}s\n\n'.format(end - start))
 
 
 # Ignore the warning as they are all 0
