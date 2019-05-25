@@ -25,7 +25,7 @@ pandas seaborn matplotlib sklearn nltk json
 1.In windows command prompt<br>
 2.Navigate to the location of the pip folder<br>
 3.Enter command to install NLTK<br>
-        `pip3 install nltk<br>`
+`pip3 install nltk`<br>
 4.Installation should be done successfully<br>
 5.Other libraries have similiar way for installation<br>
          
